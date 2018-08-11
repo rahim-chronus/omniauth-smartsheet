@@ -51,6 +51,12 @@ module OmniAuth
         options.token_params.merge!(:hash => smartsheet_hash.hexdigest)
         super
       end
+
+      private
+
+      def callback_url
+        full_host + script_name + callback_path
+      end
     end
   end
 end
